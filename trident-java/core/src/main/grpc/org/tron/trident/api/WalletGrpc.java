@@ -5,7 +5,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.58.1)",
+    value = "by gRPC proto compiler (version 1.65.0)",
     comments = "Source: api/api.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class WalletGrpc {
