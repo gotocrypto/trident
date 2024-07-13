@@ -17,7 +17,6 @@ subprojects {
 
     java {
         withSourcesJar()
-        withJavadocJar()
 
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
@@ -38,5 +37,23 @@ subprojects {
     artifacts {
         archives jar
         archives sourcesJar
+    }
+
+    publishing {
+        repositories {
+            maven {
+                name = 'GitHubPackages'
+                url = uri('https://maven.pkg.github.com/gotocrypto/trident')
+                credentials {
+                    username = System.getenv('GITHUB_ACTOR')
+                    password = System.getenv('GITHUB_TOKEN')
+                }
+            }
+        }
+        publications {
+            gpr(MavenPublication) {
+                from(components.java)
+            }
+        }
     }
 }
